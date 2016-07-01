@@ -1,0 +1,149 @@
+/*
+  This file is part of the kcal library.
+
+  Copyright (c) 1998 Preston Brown <pbrown@kde.org>
+  Copyright (c) 2001,2002,2003 Cornelius Schumacher <schumacher@kde.org>
+  Copyright (C) 2003-2004 Reinhold Kainhofer <reinhold@kainhofer.com>
+  Copyright (c) 2008 Thomas Thrainer <tom_t@gmx.at>
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Library General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Library General Public License for more details.
+
+  You should have received a copy of the GNU Library General Public License
+  along with this library; see the file COPYING.LIB.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
+*/
+/**
+  @file
+  This file is part of the API for handling calendar data and
+  defines the DndFactory class.
+
+  @author Preston Brown \<pbrown@kde.org\>
+  @author Cornelius Schumacher \<schumacher@kde.org\>
+  @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
+*/
+
+#ifndef KCAL_DNDFACTORY_H
+#define KCAL_DNDFACTORY_H
+
+#include "kcal_export.h"
+
+#include <KDE/KDateTime>
+
+class QDate;
+class QTime;
+class QDrag;
+class QWidget;
+class QDropEvent;
+class QMimeData;
+
+namespace KCal {
+
+class Event;
+class Todo;
+class Incidence;
+class Calendar;
+
+/**
+  @brief
+  vCalendar/iCalendar Drag-and-Drop object factory.
+
+  This class implements functions to create Drag and Drop objects used for
+  Drag-and-Drop and Copy-and-Paste.
+*/
+class KCAL_EXPORT DndFactory
+{
+  public:
+    explicit DndFactory( Calendar * );
+
+    ~DndFactory();
+
+    /**
+      Create the calendar that is contained in the drop event's data.
+     */
+    Calendar *createDropCalendar( QDropEvent *de );
+
+    /**
+      Create the calendar that is contained in the mime data.
+     */
+    Calendar *createDropCalendar( const QMimeData *md );
+
+     /**
+      Create the calendar that is contained in the mime data.
+     */
+    static Calendar *createDropCalendar( const QMimeData *md, const KDateTime::Spec &timeSpec );
+
+    /**
+      Create the mime data for the whole calendar.
+    */
+    QMimeData *createMimeData();
+
+    /**
+      Create a drag object for the whole calendar.
+    */
+    QDrag *createDrag( QWidget *owner );
+
+    /**
+      Create the mime data for a single incidence.
+    */
+    QMimeData *createMimeData( Incidence *incidence );
+
+    /**
+      Create a drag object for a single incidence.
+    */
+    QDrag *createDrag( Incidence *incidence, QWidget *owner );
+
+    /**
+      Create Todo object from mime data.
+    */
+    Todo *createDropTodo( const QMimeData *md );
+
+    /**
+      Create Todo object from drop event.
+    */
+    Todo *createDropTodo( QDropEvent *de );
+
+    /**
+      Create Event object from mime data.
+    */
+    Event *createDropEvent( const QMimeData *md );
+
+    /**
+      Create Event object from drop event.
+    */
+    Event *createDropEvent( QDropEvent *de );
+
+    /**
+      Cut the incidence to the clipboard.
+    */
+    void cutIncidence( Incidence * );
+
+    /**
+      Copy the incidence to clipboard/
+    */
+    bool copyIncidence( Incidence * );
+
+    /**
+      Paste the event or todo and return a pointer to the new incidence pasted.
+    */
+    Incidence *pasteIncidence( const QDate &, const QTime *newTime = 0 );
+
+  private:
+    //@cond PRIVATE
+    Q_DISABLE_COPY( DndFactory )
+    class Private;
+    Private *const d;
+    //@endcond
+};
+
+}
+
+#endif

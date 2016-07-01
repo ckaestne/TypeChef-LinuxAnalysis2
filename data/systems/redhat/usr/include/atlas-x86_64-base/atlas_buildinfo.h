@@ -1,0 +1,31 @@
+#ifndef ATL_INSTINFO_H
+   #define ATL_INSTINFO_H
+
+#define ATL_ARCH "Corei764SSE3"
+#define ATL_INSTFLAGS "-1 0 -a 1"
+#define ATL_F2CDEFS "-DAdd_ -DF77_INTEGER=int -DStringSunStyle"
+#define ATL_ARCHDEFS "-DATL_OS_Linux -DATL_ARCH_Corei7 -DATL_CPUMHZ=1596 -DATL_SSE3 -DATL_SSE2 -DATL_SSE1 -DATL_USE64BITS -DATL_GAS_x8664"
+#define ATL_DKCFLAGS "-fomit-frame-pointer -mfpmath=sse -msse3 -O2 -fno-schedule-insns2 -g -Wa,--noexecstack -fPIC -m64"
+#define ATL_DKC "gcc"
+#define ATL_SKCFLAGS "-fomit-frame-pointer -mfpmath=sse -msse3 -O2 -fno-schedule-insns2 -g -Wa,--noexecstack -fPIC -m64"
+#define ATL_SKC "gcc"
+#define ATL_DMCFLAGS "-fomit-frame-pointer -mfpmath=sse -msse3 -O2 -fno-schedule-insns2 -g -Wa,--noexecstack -fPIC -m64"
+#define ATL_DMC "gcc"
+#define ATL_SMCFLAGS "-fomit-frame-pointer -mfpmath=sse -msse3 -O2 -fno-schedule-insns2 -g -Wa,--noexecstack -fPIC -m64"
+#define ATL_SMC "gcc"
+#define ATL_ICCFLAGS "-DL2SIZE=4194304 -I/builddir/build/BUILD/ATLAS/x86_64_base/include -I/builddir/build/BUILD/ATLAS/x86_64_base/..//include -I/builddir/build/BUILD/ATLAS/x86_64_base/..//include/contrib -DAdd_ -DF77_INTEGER=int -DStringSunStyle -DATL_OS_Linux -DATL_ARCH_Corei7 -DATL_CPUMHZ=1596 -DATL_SSE3 -DATL_SSE2 -DATL_SSE1 -DATL_USE64BITS -DATL_GAS_x8664 -DWALL -DATL_NCPU=16 -fomit-frame-pointer -mfpmath=sse -msse3 -O2 -fno-schedule-insns2 -g -Wa,--noexecstack -fPIC -m64"
+#define ATL_ICC "gcc"
+#define ATL_F77FLAGS "-O -g -Wa,--noexecstack -fPIC -m64"
+#define ATL_F77 "gfortran"
+#define ATL_DKCVERS "gcc (GCC) 4.4.4 20100630 (Red Hat 4.4.4-10)"
+#define ATL_SKCVERS "gcc (GCC) 4.4.4 20100630 (Red Hat 4.4.4-10)"
+#define ATL_DMCVERS "gcc (GCC) 4.4.4 20100630 (Red Hat 4.4.4-10)"
+#define ATL_SMCVERS "gcc (GCC) 4.4.4 20100630 (Red Hat 4.4.4-10)"
+#define ATL_ICCVERS "gcc (GCC) 4.4.4 20100630 (Red Hat 4.4.4-10)"
+#define ATL_F77VERS "GNU Fortran (GCC) 4.4.4 20100630 (Red Hat 4.4.4-10)"
+#define ATL_SYSINFO "Linux x86-17.phx2.fedoraproject.org 2.6.32-44.el6.x86_64 #1 SMP Wed Jul 7 15:47:50 EDT 2010 x86_64 x86_64 x86_64 GNU/Linux"
+#define ATL_DATE    "Wed Jul 28 02:41:39 UTC 2010"
+#define ATL_UNAM    "mockbuild"
+#define ATL_VERS    "3.8.3"
+
+#endif

@@ -1,0 +1,5 @@
+LINUXGIT=/DATA/incremental/linux
+TYPECHEF=../../TypeChef/typechef.sh
+KCONFIGREADER=../kconfigreader/run.sh
+KCONFIGREADER_DUMPCONFC=../kconfigreader/dumpconf/dumpconf.c
+KBUILDMINER=../KBuildMiner/run.sh
