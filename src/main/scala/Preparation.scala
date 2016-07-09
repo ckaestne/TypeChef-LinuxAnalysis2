@@ -119,7 +119,7 @@ object Preparation {
 
     assert(outFile.exists(), "kbuild mining failed")
 
-    CleanFileList.perform(outFile, Some(new File(genDir, architecture + ".pc"))) /*,"--featureModel",new File(genDir, architecture+".dimacs").getAbsolutePath --openFeatureList $thisdir/pcs/$arch.open */
+    CleanFileList.perform(outFile, Some(new File(genDir, architecture + ".pc")), Some(new File(genDir, architecture+".features"))) /*,"--featureModel",new File(genDir, architecture+".dimacs").getAbsolutePath --openFeatureList $thisdir/pcs/$arch.open */
   }
 
 

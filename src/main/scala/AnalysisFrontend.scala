@@ -37,6 +37,7 @@ object AnalysisFrontend extends App {
   Process(s"make allyesconfig $file.i", _linuxDir).!
 
 
+
   println("running TypeChef")
 
   createPCFile(file)
@@ -53,6 +54,7 @@ object AnalysisFrontend extends App {
     s"--featureModelDimacs=$genDir/$architecture.dimacs ",
     //    s"--include=$genDir/$architecture.completed.h",
     s"--include=$genDir/$architecture.nonbool.h",
+    s"-I $dataDir/overwriteheaders",
     s"--include=$dataDir/partialConf.h",
     "--writePI",
     s"--openFeat $genDir/$architecture.features",
@@ -65,6 +67,9 @@ object AnalysisFrontend extends App {
       s"$linuxDir/arch/$architecture/include/generated",
       s"$linuxDir/arch/$architecture/include/uapi",
       s"$linuxDir/arch/$architecture/include/generated/uapi",
+      s"$linuxDir/arch/$architecture/include/asm/mach-default",
+      s"$linuxDir/arch/$architecture/include/asm/mach-generic",
+      s"$linuxDir/arch/$architecture/include/asm/mach-voyager",
       s"$linuxDir/include/uapi").filter(new File(_).exists())
 
 
